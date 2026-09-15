@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RouteGuide | Admin Console</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="chat-widget.css">
+    <link rel="stylesheet" href="quick-nav.css">
+    <link rel="stylesheet" href="travel-tools.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="auth.js"></script>
+</head>
+<body>
+    <main class="admin-shell">
+        <section class="admin-login" id="adminLogin">
+            <a class="admin-brand" href="index.html"><span><i class="fa-solid fa-location-dot"></i></span><strong>Route<span>Guide</span></strong></a>
+            <p class="eyebrow">PRIVATE WORKSPACE</p>
+            <h1>Admin console</h1>
+            <p class="intro">Manage travel data, fuel prices and fare information for your RouteGuide users.</p>
+            <form id="adminLoginForm">
+                <label for="adminEmail">Admin email</label>
+                <input id="adminEmail" type="email" placeholder="admin@example.com" required>
+                <label for="adminPassword">Password</label>
+                <input id="adminPassword" type="password" placeholder="Enter your password" required>
+                <button class="primary-button" type="submit"><i class="fa-solid fa-lock"></i> Open console</button>
+                <button class="text-button" id="resetPassword" type="button">Forgot admin password?</button>
+            </form>
+            <form id="adminRecoveryForm" class="hidden">
+                <p class="eyebrow">PASSWORD RECOVERY</p>
+                <h2>Choose a new password</h2>
+                <p class="intro">Use this form after opening the recovery link from your email.</p>
+                <label for="newAdminPassword">New password</label>
+                <input id="newAdminPassword" type="password" minlength="6" autocomplete="new-password" required>
+                <label for="confirmAdminPassword">Confirm new password</label>
+                <input id="confirmAdminPassword" type="password" minlength="6" autocomplete="new-password" required>
+                <button class="primary-button" type="submit"><i class="fa-solid fa-key"></i> Save new password</button>
+                <button class="text-button" id="cancelRecovery" type="button">Back to login</button>
+            </form>
+            <small class="security-note"><i class="fa-solid fa-lock"></i> Use the approved Supabase account password. Your laptop or Windows password is never shared with this website.</small>
+        </section>
+
+        <section class="admin-console hidden" id="adminConsole">
+            <header class="admin-header">
+                <div class="admin-brand"><span><i class="fa-solid fa-location-dot"></i></span><strong>Route<span>Guide</span></strong></div>
+                <div class="admin-header-actions"><a href="dashboard.html"><i class="fa-solid fa-arrow-left"></i> Dashboard</a><button id="adminLogout" type="button"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log out</button></div>
+            </header>
+            <div class="admin-content">
+                <div class="admin-title-row"><div><p class="eyebrow">CONTROL CENTER</p><h1>Good morning, admin.</h1><p>Keep route information accurate for people travelling across Kenya.</p></div><span class="connection-status"><i class="fa-solid fa-circle"></i> Local data mode</span></div>
+                <div class="warning-banner"><i class="fa-solid fa-triangle-exclamation"></i><div><strong>Prototype storage is local to this browser.</strong><span>For a real website, save these values in a protected database and require server-side admin authentication.</span></div></div>
+
+                <section class="admin-grid">
+                    <article class="admin-card wide-card"><div class="card-heading"><div><p class="eyebrow">FUEL PRICES</p><h2>Current fuel reference</h2></div><a id="fuelSearch" class="research-link" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google"></i> Research current prices</a></div><p class="card-copy">Update the reference used by trip cost estimates. Confirm prices from EPRA or an official station source before publishing.</p><div class="fuel-fields"><label>Petrol (KSh/L)<input id="petrolPrice" type="number" min="0" step="0.01"></label><label>Diesel (KSh/L)<input id="dieselPrice" type="number" min="0" step="0.01"></label><label>Effective date<input id="fuelDate" type="date"></label></div><button class="save-button" id="saveFuel" type="button"><i class="fa-solid fa-check"></i> Save fuel prices</button></article>
+                    <article class="admin-card"><div class="card-heading"><div><p class="eyebrow">ACCOUNT SECURITY</p><h2>Admin password</h2></div><i class="fa-solid fa-key card-icon"></i></div><p class="card-copy">You are signed in as the approved administrator. Set a new password below; it is stored securely by Supabase.</p><form id="adminChangePasswordForm" class="admin-password-form"><label for="adminNewPassword">New password<input id="adminNewPassword" type="password" minlength="8" autocomplete="new-password" required></label><label for="adminConfirmPassword">Confirm password<input id="adminConfirmPassword" type="password" minlength="8" autocomplete="new-password" required></label><button class="save-button" type="submit"><i class="fa-solid fa-check"></i> Change password</button></form></article>
+                </section>
+
+                <section class="admin-card fare-card"><div class="card-heading"><div><p class="eyebrow">MATATU FARES</p><h2>Route fare table</h2></div><a id="fareSearch" class="research-link" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google"></i> Research fares</a></div><p class="card-copy">Enter the latest normal fare. Record the source and date so users know when the information was checked.</p><div class="fare-table-wrap"><table><thead><tr><th>Route</th><th>Fare (KSh)</th><th>Source / note</th><th>Last checked</th></tr></thead><tbody id="fareRows"></tbody></table></div><button class="save-button" id="saveFares" type="button"><i class="fa-solid fa-check"></i> Save fare updates</button></section>
+                <section class="admin-card moderation-card"><div class="card-heading"><div><p class="eyebrow">COMMUNITY MODERATION</p><h2>Manage public posts</h2></div><i class="fa-solid fa-shield-halved card-icon"></i></div><p class="card-copy">Delete posts that are inaccurate, abusive or no longer useful. You can also remove posts older than a chosen number of days.</p><div class="moderation-actions"><label>Delete posts older than (days)<input id="expiryDays" type="number" min="1" value="30"></label><button class="save-button" id="deleteExpired" type="button"><i class="fa-solid fa-clock"></i> Delete old posts</button></div><div id="adminPosts" class="admin-posts"></div></section>
+            </div>
+        </section>
+    </main>
+    <div class="admin-toast" id="adminToast"></div>
+    <script src="admin.js"></script>
+    <script src="chat-widget.js"></script>
+    <script src="quick-nav.js"></script>
+    <script src="travel-tools.js"></script>
+</body>
+</html>

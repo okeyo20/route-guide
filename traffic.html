@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>RouteGuide | Traffic</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+    <!-- Traffic CSS -->
+    <link rel="stylesheet"
+          href="traffic.css">
+    <link rel="stylesheet" href="chat-widget.css">
+    <link rel="stylesheet" href="quick-nav.css">
+    <link rel="stylesheet" href="travel-tools.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ======================================
+     BACKGROUND
+======================================= -->
+
+<div class="background"></div>
+
+<div class="background-overlay"></div>
+
+
+
+<!-- ======================================
+     NAVBAR
+======================================= -->
+
+<header class="navbar">
+
+    <a href="index.html"
+       class="logo">
+
+        <div class="logo-icon">
+            <i class="fa-solid fa-location-dot"></i>
+        </div>
+
+        <div class="logo-text">
+
+            <strong>
+                Route<span>Guide</span>
+            </strong>
+
+            <small>
+                SMART NAVIGATION
+            </small>
+
+        </div>
+
+    </a>
+
+
+
+    <nav id="mainNav" aria-label="Quick links">
+
+        <a href="index.html">
+            <i class="fa-solid fa-house"></i>
+            Home
+        </a>
+
+        <a href="routes.html">
+            <i class="fa-solid fa-route"></i>
+            Routes
+        </a>
+
+        <a href="traffic.html"
+           class="active">
+
+            <i class="fa-solid fa-car"></i>
+            Traffic
+
+        </a>
+
+        <a href="weather.html">
+            <i class="fa-solid fa-cloud-sun"></i>
+            Weather
+        </a>
+
+        <a href="nearby.html">
+            <i class="fa-solid fa-location-crosshairs"></i>
+            Nearby
+        </a>
+
+        <a href="emergency.html">
+            <i class="fa-solid fa-truck-medical"></i>
+            Emergency
+        </a>
+
+        <a href="about.html">
+            <i class="fa-solid fa-circle-info"></i>
+            About
+        </a>
+
+    </nav>
+
+
+
+    <div class="nav-actions">
+
+        <button id="themeButton"
+            class="theme-button"
+            title="Toggle theme"
+            aria-label="Toggle theme">
+
+            <i class="fa-solid fa-moon"></i>
+
+        </button>
+
+
+        <button class="login-button"
+                id="loginButton">
+
+            <i class="fa-solid fa-user"></i>
+
+            Login
+
+        </button>
+
+
+        <button class="mobile-menu"
+            id="mobileMenu"
+            title="Open navigation menu"
+            aria-label="Open navigation menu">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- ======================================
+     MAIN
+======================================= -->
+
+<main>
+
+
+<!-- ======================================
+     HERO
+======================================= -->
+
+<section class="traffic-hero">
+
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+
+            <i class="fa-solid fa-circle"
+               id="liveDot"></i>
+
+            LIVE TRAFFIC SEARCH
+
+        </div>
+
+
+        <h1>
+
+            Find Traffic
+            <br>
+
+            <span>Across Kenya</span>
+
+        </h1>
+
+
+        <p>
+
+            Search for traffic updates, road incidents,
+            videos, photos and news from Google and
+            social media platforms.
+
+        </p>
+
+
+        <!-- SEARCH -->
+
+        <form class="traffic-search" id="trafficForm">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="trafficSearch"
+                placeholder="Search road, town or highway..."
+                value="Nairobi traffic">
+
+            <button id="searchButton" type="submit">
+
+                Search
+
+            </button>
+
+        </form>
+
+
+        <!-- QUICK SEARCH -->
+
+        <div class="quick-search">
+
+            <span>
+                Popular:
+            </span>
+
+
+            <button data-search="Thika Road traffic Kenya">
+                Thika Road
+            </button>
+
+            <button data-search="Mombasa Road traffic Nairobi">
+                Mombasa Road
+            </button>
+
+            <button data-search="Waiyaki Way traffic Nairobi">
+                Waiyaki Way
+            </button>
+
+            <button data-search="Nairobi CBD traffic">
+                Nairobi CBD
+            </button>
+
+            <button data-search="Nakuru traffic Kenya">
+                Nakuru
+            </button>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<section class="traffic-snapshot" aria-label="Traffic snapshot">
+    <div class="snapshot-card"><i class="fa-solid fa-car"></i><div><small>NAIROBI CBD</small><strong>Moderate traffic</strong><span><b class="status-dot amber"></b> 18 min delay</span></div></div>
+    <div class="snapshot-card"><i class="fa-solid fa-road"></i><div><small>THIKA ROAD</small><strong>Moving slowly</strong><span><b class="status-dot amber"></b> A2 updates</span></div></div>
+    <div class="snapshot-card"><i class="fa-solid fa-circle-check"></i><div><small>MOMBASA ROAD</small><strong>Clear sections</strong><span><b class="status-dot green"></b> Light flow</span></div></div>
+    <div class="snapshot-card"><i class="fa-solid fa-clock"></i><div><small>LAST CHECK</small><strong id="lastChecked">Just now</strong><span>Refresh before travel</span></div></div>
+</section>
+
+
+
+<!-- ======================================
+     SEARCH SOURCES
+======================================= -->
+
+<section class="sources-section">
+
+
+    <div class="section-heading">
+
+        <div>
+
+            <span>
+                SEARCH SOURCES
+            </span>
+
+            <h2>
+                Find Traffic Reports
+            </h2>
+
+        </div>
+
+        <p>
+            Search multiple platforms
+            for the latest road information.
+        </p>
+
+    </div>
+
+
+
+    <div class="source-grid">
+
+
+        <!-- GOOGLE -->
+
+        <div class="source-card">
+
+            <div class="source-icon google">
+
+                <i class="fa-brands fa-google"></i>
+
+            </div>
+
+            <div class="source-info">
+
+                <h3>Google Search</h3>
+
+                <p>
+                    Search the web for traffic
+                    reports and road incidents.
+                </p>
+
+            </div>
+
+            <button
+                class="source-button"
+                data-source="google">
+
+                Search
+
+            </button>
+
+        </div>
+
+
+
+        <!-- GOOGLE IMAGES -->
+
+        <div class="source-card">
+
+            <div class="source-icon images">
+
+                <i class="fa-solid fa-image"></i>
+
+            </div>
+
+            <div class="source-info">
+
+                <h3>Google Images</h3>
+
+                <p>
+                    Find traffic photographs,
+                    road conditions and incidents.
+                </p>
+
+            </div>
+
+            <button
+                class="source-button"
+                data-source="images">
+
+                Images
+
+            </button>
+
+        </div>
+
+
+
+        <!-- YOUTUBE -->
+
+        <div class="source-card">
+
+            <div class="source-icon youtube">
+
+                <i class="fa-brands fa-youtube"></i>
+
+            </div>
+
+            <div class="source-info">
+
+                <h3>YouTube</h3>
+
+                <p>
+                    Find traffic videos,
+                    road cameras and reports.
+                </p>
+
+            </div>
+
+            <button
+                class="source-button"
+                data-source="youtube">
+
+                Videos
+
+            </button>
+
+        </div>
+
+
+
+        <!-- TIKTOK -->
+
+        <div class="source-card">
+
+            <div class="source-icon tiktok">
+
+                <i class="fa-brands fa-tiktok"></i>
+
+            </div>
+
+            <div class="source-info">
+
+                <h3>TikTok</h3>
+
+                <p>
+                    Find recent road and
+                    traffic videos.
+                </p>
+
+            </div>
+
+            <button
+                class="source-button"
+                data-source="tiktok">
+
+                Search
+
+            </button>
+
+        </div>
+
+
+
+        <!-- FACEBOOK -->
+
+        <div class="source-card">
+
+            <div class="source-icon facebook">
+
+                <i class="fa-brands fa-facebook"></i>
+
+            </div>
+
+            <div class="source-info">
+
+                <h3>Facebook</h3>
+
+                <p>
+                    Search public traffic
+                    posts and community reports.
+                </p>
+
+            </div>
+
+            <button
+                class="source-button"
+                data-source="facebook">
+
+                Search
+
+            </button>
+
+        </div>
+
+
+
+        <!-- INSTAGRAM -->
+
+        <div class="source-card">
+
+            <div class="source-icon instagram">
+
+                <i class="fa-brands fa-instagram"></i>
+
+            </div>
+
+            <div class="source-info">
+
+                <h3>Instagram</h3>
+
+                <p>
+                    Search public road photos
+                    and traffic posts.
+                </p>
+
+            </div>
+
+            <button
+                class="source-button"
+                data-source="instagram">
+
+                Search
+
+            </button>
+
+        </div>
+
+
+
+        <!-- X -->
+
+        <div class="source-card">
+
+            <div class="source-icon x">
+
+                <i class="fa-brands fa-x-twitter"></i>
+
+            </div>
+
+            <div class="source-info">
+
+                <h3>X</h3>
+
+                <p>
+                    Find public traffic alerts
+                    and road updates.
+                </p>
+
+            </div>
+
+            <button
+                class="source-button"
+                data-source="x">
+
+                Search
+
+            </button>
+
+        </div>
+
+
+
+        <!-- NEWS -->
+
+        <div class="source-card">
+
+            <div class="source-icon news">
+
+                <i class="fa-solid fa-newspaper"></i>
+
+            </div>
+
+            <div class="source-info">
+
+                <h3>Google News</h3>
+
+                <p>
+                    Search recent traffic
+                    and road news.
+                </p>
+
+            </div>
+
+            <button
+                class="source-button"
+                data-source="news">
+
+                News
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<section class="report-section">
+    <div class="report-heading"><div><span>COMMUNITY REPORTS</span><h2>Share what is happening on the road</h2><p>Post a traffic blog, hazard report or road image for other travellers.</p></div><i class="fa-solid fa-flag"></i></div>
+    <form class="report-form" id="reportForm">
+        <input id="reportRoad" type="text" placeholder="Road or town" required aria-label="Road or town">
+        <select id="reportType" aria-label="Report type"><option value="Traffic update">Traffic update</option><option value="Pothole">Pothole</option><option value="Flooding">Flooding</option><option value="Accident">Accident</option><option value="Roadworks">Roadworks</option><option value="Blocked road">Blocked road</option></select>
+        <textarea id="reportNote" placeholder="Write your traffic blog or report..." aria-label="Traffic blog or report" maxlength="1000"></textarea>
+        <label class="image-upload" for="reportImage"><i class="fa-solid fa-camera"></i><span id="imageUploadLabel">Add road image</span><input id="reportImage" type="file" accept="image/*"></label>
+        <button type="submit"><i class="fa-solid fa-paper-plane"></i> Publish report</button>
+    </form>
+    <p class="report-disclaimer"><i class="fa-solid fa-circle-info"></i> Be accurate and avoid personal information. Posts are public when connected to a shared database.</p>
+</section>
+
+<section class="community-feed-section">
+    <div class="results-header"><div><span>PUBLIC FEED</span><h2>Community road posts</h2></div><div class="result-status"><i class="fa-solid fa-users"></i> Open to everyone</div></div>
+    <div class="community-feed" id="communityFeed"></div>
+</section>
+
+<div class="post-modal" id="postModal" aria-hidden="true">
+    <div class="post-modal-backdrop" id="postModalBackdrop"></div>
+    <article class="post-modal-card">
+        <button id="closePostModal" type="button" aria-label="Close post" title="Close post"><i class="fa-solid fa-xmark"></i></button>
+        <img id="postModalImage" class="post-modal-image" alt="">
+        <div class="post-modal-body"><div class="community-post-meta"><span id="postModalType" class="community-post-type"></span><span id="postModalDate"></span></div><h2 id="postModalTitle"></h2><p id="postModalText"></p></div>
+    </article>
+</div>
+
+
+
+<!-- ======================================
+     TRAFFIC RESULT AREA
+======================================= -->
+
+<section class="results-section">
+
+
+    <div class="results-header">
+
+        <div>
+
+            <span>
+                SEARCH RESULTS
+            </span>
+
+            <h2>
+                Traffic Media
+            </h2>
+
+        </div>
+
+
+        <div class="result-status">
+
+            <i class="fa-solid fa-circle"></i>
+
+            Ready to search
+
+        </div>
+
+    </div>
+
+    <form class="traffic-media-search" id="trafficMediaForm">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input id="trafficMediaQuery" type="search" placeholder="Search traffic media by road or town..." aria-label="Search traffic media by road or town">
+        <button type="submit"><i class="fa-solid fa-search"></i> Search traffic</button>
+    </form>
+
+
+
+    <div class="results-grid"
+         id="resultsGrid">
+
+
+        <!-- DEFAULT CARD -->
+
+        <div class="empty-results">
+
+            <div class="empty-icon">
+
+                <i class="fa-solid fa-road"></i>
+
+            </div>
+
+            <h3>
+                Search for Traffic
+            </h3>
+
+            <p>
+                Enter a road, town or highway
+                above to find traffic reports.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================
+     TRAFFIC SAFETY
+======================================= -->
+
+<section class="safety-section">
+
+
+    <div class="safety-icon">
+
+        <i class="fa-solid fa-triangle-exclamation"></i>
+
+    </div>
+
+
+    <div>
+
+        <h3>
+            Drive Safely
+        </h3>
+
+        <p>
+            Social-media traffic information can
+            change quickly. Always verify road
+            conditions before travelling.
+        </p>
+
+    </div>
+
+
+</section>
+
+
+</main>
+
+
+
+<!-- ======================================
+     LOGIN MODAL
+======================================= -->
+
+<div class="modal"
+     id="loginModal">
+
+    <div class="modal-box">
+
+        <button class="close-modal"
+            id="closeLogin"
+            title="Close login form"
+            aria-label="Close login form">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+
+        <div class="modal-icon">
+
+            <i class="fa-solid fa-user"></i>
+
+        </div>
+
+
+        <h2>
+            Welcome Back
+        </h2>
+
+        <p>
+            Login to your RouteGuide account.
+        </p>
+
+
+        <form id="loginForm">
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Email address"
+                required>
+
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                required>
+
+
+            <button type="submit">
+
+                Login
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- ======================================
+     TOAST
+======================================= -->
+
+<div class="toast"
+     id="toast">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <span id="toastMessage">
+        Search opened
+    </span>
+
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="auth.js"></script>
+<script src="traffic.js"></script>
+<script src="chat-widget.js"></script>
+<script src="quick-nav.js"></script>
+<script src="travel-tools.js"></script>
+
+</body>
+
+</html>

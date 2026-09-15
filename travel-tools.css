@@ -1,0 +1,17 @@
+.routeguide-tools { position: fixed; right: 22px; bottom: 140px; z-index: 138; }
+.routeguide-tools-toggle { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border: 1px solid rgba(255,255,255,.2); border-radius: 22px; color: #fff; background: #17465f; box-shadow: 0 10px 28px rgba(0,25,45,.3); cursor: pointer; font: 700 10px Poppins, sans-serif; }
+.routeguide-tools-toggle:hover { background: #216985; transform: translateY(-2px); }
+.routeguide-tools-panel { display: none; position: absolute; right: 0; bottom: 52px; width: min(310px, calc(100vw - 28px)); padding: 14px; border: 1px solid #36536b; border-radius: 14px; color: #dbeaf5; background: #071a2d; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+.routeguide-tools-panel.open { display: block; animation: routeguide-tools-in .16s ease-out; }
+@keyframes routeguide-tools-in { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+.routeguide-tools-panel h2 { margin: 0 0 11px; color: #fff; font: 700 14px Poppins, sans-serif; }
+.routeguide-tools-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 7px; }
+.routeguide-tools-grid button { min-height: 45px; padding: 7px; border: 1px solid #36536b; border-radius: 8px; color: #dbeaf5; background: transparent; cursor: pointer; font: 500 9px Poppins, sans-serif; }
+.routeguide-tools-grid button:hover { border-color: #55c2ff; background: rgba(7,156,245,.15); }
+.routeguide-tools-grid i { display: block; margin-bottom: 4px; color: #55c2ff; font-size: 14px; }
+.routeguide-tools-status { min-height: 17px; margin: 10px 0 0; color: #8fd8ff; font-size: 9px; line-height: 1.45; }
+.routeguide-cost-form { display: none; gap: 7px; margin-top: 10px; }
+.routeguide-cost-form.open { display: grid; }
+.routeguide-cost-form label { color: #b6c7d7; font-size: 9px; }
+.routeguide-cost-form input { width: 100%; margin-top: 4px; padding: 8px; border: 1px solid #36536b; border-radius: 7px; color: #fff; background: #0c2338; font: 10px Poppins, sans-serif; }
+@media (max-width: 560px) { .routeguide-tools { right: 14px; bottom: 128px; } .routeguide-tools-toggle { width: 44px; justify-content: center; padding: 0; border-radius: 50%; } .routeguide-tools-toggle span { display: none; } }

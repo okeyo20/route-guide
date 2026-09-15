@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create a RouteGuide account">
+    <title>RouteGuide | Create Account</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="chat-widget.css">
+    <link rel="stylesheet" href="quick-nav.css">
+    <link rel="stylesheet" href="travel-tools.css">
+    <style>
+        .register-page { min-height: 100vh; display: grid; place-items: center; padding: 30px 18px; }
+        .register-quick-links { position: fixed; top: 0; left: 0; right: 0; z-index: 10; display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; padding: 14px 18px; border-bottom: 1px solid rgba(255,255,255,.12); background: rgba(3,17,30,.82); backdrop-filter: blur(12px); }
+        .register-quick-links a { color: #dbeaf5; font-size: 10px; font-weight: 600; text-decoration: none; }
+        .register-quick-links a:hover { color: #55c2ff; }
+        .register-card { width: min(430px, 100%); padding: 34px; border: 1px solid rgba(173,211,239,.2); border-radius: 18px; background: rgba(4,20,35,.86); box-shadow: 0 24px 70px rgba(0,0,0,.35); }
+        .register-brand { display: inline-flex; align-items: center; gap: 10px; color: #fff; font-size: 20px; font-weight: 800; text-decoration: none; }
+        .register-brand i { color: #55c2ff; }
+        .register-card h1 { margin: 28px 0 8px; color: #fff; font-size: 28px; }
+        .register-card > p { margin: 0 0 24px; color: #9bb2c4; font-size: 11px; line-height: 1.6; }
+        .register-form label { display: block; margin: 14px 0 7px; color: #dbeaf5; font-size: 11px; font-weight: 600; }
+        .register-input { display: flex; align-items: center; gap: 10px; padding: 0 12px; border: 1px solid #36536b; border-radius: 9px; background: #0c2338; }
+        .register-input i { color: #55c2ff; }
+        .register-input input { width: 100%; padding: 12px 0; border: 0; outline: 0; color: #fff; background: transparent; font: inherit; font-size: 11px; }
+        .register-submit { width: 100%; margin-top: 22px; padding: 13px; border: 0; border-radius: 9px; color: #fff; background: #087fe8; cursor: pointer; font: inherit; font-size: 11px; font-weight: 700; }
+        .register-submit:hover { background: #079cf5; }
+        .register-google { width: 100%; margin-top: 12px; padding: 12px; border: 1px solid #36536b; border-radius: 9px; color: #fff; background: transparent; cursor: pointer; font: inherit; font-size: 11px; font-weight: 700; }
+        .register-google:hover { border-color: #55c2ff; background: rgba(255,255,255,.06); }
+        .register-footer { margin-top: 20px !important; text-align: center; }
+        .register-footer a { color: #55c2ff; font-weight: 700; }
+        .register-message { min-height: 18px; margin-top: 14px !important; color: #ffd166 !important; }
+    </style>
+</head>
+<body>
+    <nav class="register-quick-links" aria-label="Quick links">
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="routes.html"><i class="fa-solid fa-route"></i> Routes</a>
+        <a href="traffic.html"><i class="fa-solid fa-car"></i> Traffic</a>
+        <a href="weather.html"><i class="fa-solid fa-cloud-sun"></i> Weather</a>
+        <a href="nearby.html"><i class="fa-solid fa-location-crosshairs"></i> Nearby</a>
+        <a href="emergency.html"><i class="fa-solid fa-truck-medical"></i> Emergency</a>
+        <a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a>
+    </nav>
+    <main class="register-page">
+        <section class="register-card">
+            <a class="register-brand" href="index.html"><i class="fa-solid fa-location-dot"></i> RouteGuide</a>
+            <h1>Create your account</h1>
+            <p>Save your RouteGuide preferences and access your travel workspace.</p>
+            <form class="register-form" id="registerForm">
+                <label for="registerEmail">Email address</label>
+                <div class="register-input"><i class="fa-regular fa-envelope"></i><input id="registerEmail" type="email" autocomplete="email" placeholder=" i.e okeyomaxwel53@gmail.com" required></div>
+                <label for="registerPassword">Password</label>
+                <div class="register-input"><i class="fa-solid fa-lock"></i><input id="registerPassword" type="password" autocomplete="new-password" minlength="6" placeholder="At least 6 characters" required></div>
+                <label for="registerConfirmPassword">Confirm password</label>
+                <div class="register-input"><i class="fa-solid fa-shield-halved"></i><input id="registerConfirmPassword" type="password" autocomplete="new-password" minlength="6" placeholder="Repeat your password" required></div>
+                <button class="register-submit" type="submit"><i class="fa-solid fa-user-plus"></i> Create account</button>
+                <button class="register-google" id="registerGoogle" type="button"><i class="fa-brands fa-google"></i> Continue with Google</button>
+                <p class="register-message" id="registerMessage" aria-live="polite"></p>
+            </form>
+            <p class="register-footer">Already have an account? <a href="index.html#login">Log in</a></p>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        const registerAuth = window.RouteGuideAuth;
+        const registerClient = registerAuth.getClient();
+        const registerMessage = document.getElementById("registerMessage");
+        const registerForm = document.getElementById("registerForm");
+        const registerSubmit = registerForm.querySelector(".register-submit");
+        const registerGoogle = document.getElementById("registerGoogle");
+
+        function completeRegistration(user) {
+            registerAuth.rememberUser(user);
+            window.location.href = "dashboard.html";
+        }
+
+        if (registerClient) {
+            registerClient.auth.getSession().then(function ({ data }) {
+                const hasAuthCallback = window.location.hash.includes("access_token") || window.location.search.includes("code=");
+                if (data.session && hasAuthCallback) {
+                    completeRegistration(data.session.user);
+                }
+            });
+        }
+
+        registerForm.addEventListener("submit", async function (event) {
+            event.preventDefault();
+            const email = document.getElementById("registerEmail").value.trim();
+            const password = document.getElementById("registerPassword").value;
+            const confirmPassword = document.getElementById("registerConfirmPassword").value;
+            if (password !== confirmPassword) {
+                registerMessage.textContent = "Passwords do not match.";
+                return;
+            }
+            if (!registerClient) {
+                registerMessage.textContent = "Configure Supabase before creating an account.";
+                return;
+            }
+            registerSubmit.disabled = true;
+            registerSubmit.textContent = "Creating account...";
+            const result = await registerClient.auth.signUp({
+                email: email,
+                password: password,
+                options: { emailRedirectTo: window.location.origin + "/index.html" }
+            });
+            registerSubmit.disabled = false;
+            registerSubmit.innerHTML = '<i class="fa-solid fa-user-plus"></i> Create account';
+            if (result.error) {
+                registerMessage.textContent = result.error.message.toLowerCase().includes("already") || result.error.message.toLowerCase().includes("registered")
+                    ? "This email already has a RouteGuide account. Use Log in or Forgot password instead."
+                    : result.error.message;
+                return;
+            }
+            if (result.data.session) {
+                completeRegistration(result.data.user);
+            } else {
+                registerMessage.textContent = "Account created. Check your email to confirm it, then log in.";
+            }
+        });
+
+        registerGoogle.addEventListener("click", async function () {
+            if (!registerClient) {
+                registerMessage.textContent = "Configure Supabase before using Google registration.";
+                return;
+            }
+            const result = await registerClient.auth.signInWithOAuth({
+                provider: "google",
+                options: { redirectTo: window.location.origin + window.location.pathname }
+            });
+            if (result.error) registerMessage.textContent = result.error.message;
+        });
+    </script>
+    <script src="chat-widget.js"></script>
+    <script src="quick-nav.js"></script>
+    <script src="travel-tools.js"></script>
+</body>
+</html>

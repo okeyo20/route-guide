@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RouteGuide | About</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="chat-widget.css">
+    <link rel="stylesheet" href="quick-nav.css">
+    <link rel="stylesheet" href="travel-tools.css">
+</head>
+<body>
+    <div class="page-background"></div>
+    <div class="background-overlay"></div>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="logo-text">
+                <h2>Route<span>Guide</span></h2>
+                <small>SMART NAVIGATION</small>
+            </div>
+        </a>
+
+        <button class="mobile-menu" id="mobileMenu" type="button" aria-label="Open navigation menu" title="Open navigation menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav id="mainNav" aria-label="Quick links">
+            <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="routes.html"><i class="fa-solid fa-route"></i> Routes</a>
+            <a href="traffic.html"><i class="fa-solid fa-car"></i> Traffic</a>
+            <a href="weather.html"><i class="fa-solid fa-cloud-sun"></i> Weather</a>
+            <a href="nearby.html"><i class="fa-solid fa-location-crosshairs"></i> Nearby</a>
+            <a href="emergency.html"><i class="fa-solid fa-truck-medical"></i> Emergency</a>
+            <a href="about.html" class="active"><i class="fa-solid fa-circle-info"></i> About</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button class="theme-button" id="themeButton" type="button"><i class="fa-solid fa-moon"></i> Dark Mode</button>
+            <button class="login-button" id="loginButton" type="button"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
+        </div>
+    </header>
+
+    <main class="hero page-hero">
+        <section class="hero-content page-content-shell">
+            <div class="hero-label"><i class="fa-solid fa-circle-info"></i> ABOUT ROUTEGUIDE</div>
+            <h1>Helping people move <span>smarter</span> across Kenya</h1>
+            <p>RouteGuide is designed to make travel easier, safer and more informed with route planning, live road updates and local navigation support.</p>
+
+            <div class="features page-features">
+                <div class="feature">
+                    <div class="feature-icon blue"><i class="fa-solid fa-route"></i></div>
+                    <span>Route planning<br>for major cities</span>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon green"><i class="fa-solid fa-car"></i></div>
+                    <span>Traffic visibility<br>on busy roads</span>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon orange"><i class="fa-solid fa-cloud-sun"></i></div>
+                    <span>Weather-aware<br>travel updates</span>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon purple"><i class="fa-solid fa-shield-heart"></i></div>
+                    <span>Emergency access<br>when it matters</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="client-ratings about-section" id="clientRatings" aria-labelledby="ratingsTitle">
+        <div class="ratings-heading">
+            <div>
+                <span class="hero-label"><i class="fa-solid fa-star"></i> CLIENT FEEDBACK</span>
+                <h2 id="ratingsTitle">proud clients</h2>
+                <p>Real journeys feel better when the right information is close at hand.</p>
+            </div>
+            <div class="rating-summary"><strong>4.9</strong><span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span><small>from RouteGuide clients</small></div>
+        </div>
+        <div class="rating-grid">
+            <article class="rating-card"><div class="rating-person"><span class="passport-avatar" aria-label="Empty passport picture"><i class="fa-regular fa-user"></i></span><strong>Atieno, Kisumu</strong></div><div class="rating-stars" aria-label="5 out of 5 stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><blockquote>“The route and emergency links made planning my trip from Rongo much easier.”</blockquote></article>
+            <article class="rating-card"><div class="rating-person"><span class="passport-avatar" aria-label="Empty passport picture"><i class="fa-regular fa-user"></i></span><strong>Brian, Nairobi</strong></div><div class="rating-stars" aria-label="5 out of 5 stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><blockquote>“A clean way to check traffic, weather and nearby services before leaving.”</blockquote></article>
+            <article class="rating-card"><div class="rating-person"><span class="passport-avatar" aria-label="Empty passport picture"><i class="fa-regular fa-user"></i></span><strong>Mercy, Mombasa</strong></div><div class="rating-stars" aria-label="4 out of 5 stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div><blockquote>“The travel tools are useful when I am moving between towns.”</blockquote></article>
+        </div>
+        <div class="rate-us"><span>How was your RouteGuide experience?</span><div class="rate-buttons" role="group" aria-label="Rate RouteGuide"><button type="button" data-rating="1" aria-label="1 star"><i class="fa-regular fa-star"></i></button><button type="button" data-rating="2" aria-label="2 stars"><i class="fa-regular fa-star"></i></button><button type="button" data-rating="3" aria-label="3 stars"><i class="fa-regular fa-star"></i></button><button type="button" data-rating="4" aria-label="4 stars"><i class="fa-regular fa-star"></i></button><button type="button" data-rating="5" aria-label="5 stars"><i class="fa-regular fa-star"></i></button></div><small id="ratingMessage" aria-live="polite"></small></div>
+    </section>
+
+    <section class="comments-section about-section" aria-labelledby="commentsTitle">
+        <div class="ratings-heading">
+            <div>
+                <span class="hero-label"><i class="fa-solid fa-comments"></i> COMMUNITY VOICE</span>
+                <h2 id="commentsTitle">Share your RouteGuide experience</h2>
+                <p>Your anonymous passport keeps your identity private while helping the community exchange useful feedback.</p>
+            </div>
+            <span class="anonymous-passport"><i class="fa-solid fa-passport"></i> <strong id="anonymousPassport">Creating passport...</strong></span>
+        </div>
+        <form class="comment-form" id="commentForm">
+            <label class="comment-identity-toggle"><input id="anonymousComment" type="checkbox" checked> Post anonymously with my passport</label>
+            <div id="publicCommentIdentity" hidden>
+                <label for="commentDisplayName">Display name</label>
+                <input id="commentDisplayName" type="text" maxlength="60" placeholder="Your name or nickname" autocomplete="nickname">
+            </div>
+            <label for="commentText">Your comment</label>
+            <textarea id="commentText" maxlength="500" required placeholder="What helped you on your journey?"></textarea>
+            <div class="comment-form-actions"><small>Maximum 500 characters. Do not share private information.</small><button class="primary-button" type="submit"><i class="fa-solid fa-paper-plane"></i> Post anonymously</button></div>
+        </form>
+        <div class="comment-list" id="commentList" aria-live="polite"><small>Loading community comments...</small></div>
+    </section>
+
+    <section class="official-resources about-section" aria-labelledby="resourcesTitle">
+        <div class="ratings-heading">
+            <div>
+                <span class="hero-label"><i class="fa-solid fa-handshake"></i> OFFICIAL RESOURCES</span>
+                <h2 id="resourcesTitle">Partners</h2>
+                <p>Visit the official websites for current notices, safety information and public services.</p>
+            </div>
+        </div>
+        <div class="resource-grid">
+            <a class="resource-card" href="https://ntsa.go.ke/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-road"></i><strong>NTSA</strong><small>Road safety, licensing and transport services</small></a>
+            <a class="resource-card" href="https://www.mygov.go.ke/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-landmark"></i><strong>Government of Kenya</strong><small>Official public information and services</small></a>
+            <a class="resource-card" href="https://mediacouncil.or.ke/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-newspaper"></i><strong>Media Council of Kenya</strong><small>Media standards and public-interest information</small></a>
+            <a class="resource-card" href="https://meteo.go.ke/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-cloud-sun"></i><strong>Kenya Meteorological Department</strong><small>Weather forecasts and warnings</small></a>
+            <a class="resource-card" href="https://www.redcross.or.ke/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-kit-medical"></i><strong>Kenya Red Cross</strong><small>Humanitarian and emergency support</small></a>
+            <a class="resource-card" href="https://kenha.co.ke/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-road-bridge"></i><strong>KeNHA</strong><small>National roads and highway information</small></a>
+            <a class="resource-card" href="https://nationalpolice.go.ke/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-shield-halved"></i><strong>Kenya National Police Service</strong><small>Police and public safety information</small></a>
+        </div>
+    </section>
+
+    <footer class="site-footer"><span><i class="fa-solid fa-location-dot"></i> RouteGuide</span><small>Made with <span class="footer-heart" aria-label="love">&#9829;</span> by Okeyo Maxwel</small></footer>
+
+    <div class="login-modal" id="loginModal" aria-hidden="true">
+        <div class="modal-background" id="modalBackground"></div>
+        <div class="login-card">
+            <button class="close-login" id="closeLogin" type="button" aria-label="Close login form"><i class="fa-solid fa-xmark"></i></button>
+            <h3>Welcome back</h3>
+            <form id="loginForm">
+                <label>Email</label>
+                <input type="email" placeholder="you@example.com" />
+                <label>Password</label>
+                <div class="password-box">
+                    <input type="password" id="password" placeholder="Enter your password" />
+                    <button type="button" id="showPassword"><i class="fa-solid fa-eye"></i></button>
+                </div>
+                <button type="submit" class="primary-button full-width-login-button">Log in</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="auth.js"></script>
+    <script src="home.js"></script>
+    <script src="chat-widget.js"></script>
+    <script src="quick-nav.js"></script>
+    <script src="travel-tools.js"></script>
+</body>
+</html>

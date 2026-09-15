@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RouteGuide | Smart Navigation</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+    <!-- Route CSS -->
+    <link rel="stylesheet" href="routes.css">
+    <link rel="stylesheet" href="chat-widget.css">
+    <link rel="stylesheet" href="quick-nav.css">
+    <link rel="stylesheet" href="travel-tools.css">
+</head>
+
+<body>
+
+    <!-- ================= BACKGROUND ================= -->
+
+    <div class="background-image"></div>
+    <div class="background-overlay"></div>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
+
+            <div class="logo-text">
+                <strong>Route<span>Guide</span></strong>
+                <small>Smart Navigation</small>
+            </div>
+        </div>
+
+
+        <nav id="mainNav" aria-label="Quick links">
+
+            <a href="index.html">
+                <i class="fa-solid fa-house"></i>
+                Home
+            </a>
+
+            <a href="routes.html" class="active">
+                <i class="fa-solid fa-route"></i>
+                Routes
+            </a>
+
+            <a href="traffic.html">
+                <i class="fa-solid fa-car"></i>
+                Traffic
+            </a>
+
+            <a href="weather.html">
+                <i class="fa-solid fa-cloud-sun"></i>
+                Weather
+            </a>
+
+            <a href="nearby.html">
+                <i class="fa-solid fa-location-crosshairs"></i>
+                Nearby
+            </a>
+
+            <a href="emergency.html">
+                <i class="fa-solid fa-truck-medical"></i>
+                Emergency
+            </a>
+
+            <a href="about.html">
+                <i class="fa-solid fa-circle-info"></i>
+                About
+            </a>
+
+        </nav>
+
+
+        <div class="nav-right">
+
+            <button class="theme-button" id="themeButton" type="button" aria-label="Toggle theme" title="Toggle theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
+            <button class="profile-button" id="profileButton" type="button" aria-label="Profile menu" title="Profile menu">
+                <i class="fa-solid fa-user"></i>
+                <span>Welcome</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+
+        </div>
+
+
+        <!-- Mobile menu -->
+
+        <button class="mobile-menu" id="mobileMenu" type="button" aria-label="Open menu" title="Open menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+    </header>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="routes-page">
+
+
+        <!-- ================= HERO ================= -->
+
+        <section class="route-hero">
+
+            <div class="hero-content">
+
+                <div class="hero-label">
+                    <i class="fa-solid fa-route"></i>
+                    SMART ROUTE PLANNER
+                </div>
+
+                <h1>
+                    Plan Your Route
+                    <br>
+                    Across <span>Kenya</span>
+                </h1>
+
+                <p>
+                    Get the best routes, estimated travel time,
+                    distance and traffic information.
+                    Travel smarter, safer and faster.
+                </p>
+
+
+                <!-- Route Search -->
+
+                <div class="route-search-card">
+
+                    <div class="location-line">
+
+                        <div class="location-icon start">
+                            <i class="fa-solid fa-circle"></i>
+                        </div>
+
+                        <div class="input-area">
+
+                            <label>From</label>
+
+                            <input
+                                type="text"
+                                id="fromLocation"
+                                placeholder="Enter starting point"
+                                value="Nairobi CBD"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="location-line">
+
+                        <div class="location-icon destination">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+
+                        <div class="input-area">
+
+                            <label>To</label>
+
+                            <input
+                                type="text"
+                                id="toLocation"
+                                placeholder="Enter destination"
+                                value="Thika"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <button class="swap-button" id="swapButton" type="button" aria-label="Swap route points" title="Swap route points">
+                        <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                    </button>
+
+
+                    <button class="find-route-button" id="findRoute" type="button">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        Find in Google Maps
+
+                    </button>
+
+                </div>
+
+
+                <!-- Popular destinations -->
+
+                <div class="popular">
+
+                    <div class="popular-title">
+                        <i class="fa-solid fa-star"></i>
+                        Popular Destinations
+                    </div>
+
+
+                    <div class="destination-buttons">
+
+                        <button data-place="Nairobi CBD">
+                            Nairobi CBD
+                        </button>
+
+                        <button data-place="JKIA">
+                            JKIA
+                        </button>
+
+                        <button data-place="Westlands">
+                            Westlands
+                        </button>
+
+                        <button data-place="Thika">
+                            Thika
+                        </button>
+
+                        <button data-place="Ruiru">
+                            Ruiru
+                        </button>
+
+                        <button data-place="Nakuru">
+                            Nakuru
+                        </button>
+
+                        <button data-place="Kisumu">
+                            Kisumu
+                        </button>
+
+                        <button data-place="Mombasa">
+                            Mombasa
+                        </button>
+
+                        <button data-place="Malindi">
+                            Malindi
+                        </button>
+
+                        <button data-place="Eldoret">
+                            Eldoret
+                        </button>
+
+                        <button data-place="Meru">
+                            Meru
+                        </button>
+
+                        <button data-place="Nanyuki">
+                            Nanyuki
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= MAP CARD ================= -->
+
+            <div class="map-section">
+
+                <div class="map-card">
+                    <iframe
+                        id="googleMap"
+                        class="google-map"
+                        title="Google Maps driving directions"
+                        src="https://www.google.com/maps?q=Nairobi%20CBD%2C%20Kenya%20to%20Thika%2C%20Kenya&output=embed"
+                        loading="lazy"
+                        allowfullscreen>
+                    </iframe>
+
+
+                    <!-- Route information -->
+
+                    <div class="route-information">
+
+                        <div class="route-stat">
+
+                            <i class="fa-solid fa-car"></i>
+
+                            <div>
+                                <small>Distance</small>
+                                <strong id="distance">
+                                    42.3 km
+                                </strong>
+                            </div>
+
+                        </div>
+
+
+                        <div class="route-stat">
+
+                            <i class="fa-regular fa-clock"></i>
+
+                            <div>
+                                <small>Estimated Time</small>
+                                <strong id="time">
+                                    1 hr 5 min
+                                </strong>
+                            </div>
+
+                        </div>
+
+
+                        <div class="route-stat traffic-stat">
+
+                            <i class="fa-solid fa-circle"></i>
+
+                            <div>
+                                <small>Traffic</small>
+                                <strong id="traffic">
+                                    Light
+                                </strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= FEATURES ================= -->
+
+        <section class="feature-bar">
+
+            <div class="feature">
+
+                <div class="feature-icon blue">
+                    <i class="fa-solid fa-location-arrow"></i>
+                </div>
+
+                <div>
+                    <strong>Real-time Routes</strong>
+                    <small>Find the fastest and safest routes</small>
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon green">
+                    <i class="fa-solid fa-car"></i>
+                </div>
+
+                <div>
+                    <strong>Live Traffic</strong>
+                    <small>Avoid congestion and delays</small>
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon yellow">
+                    <i class="fa-solid fa-cloud-sun"></i>
+                </div>
+
+                <div>
+                    <strong>Weather Updates</strong>
+                    <small>Plan around weather conditions</small>
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon purple">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+
+                <div>
+                    <strong>Nearby Places</strong>
+                    <small>Discover services and attractions</small>
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon red">
+                    <i class="fa-solid fa-shield-heart"></i>
+                </div>
+
+                <div>
+                    <strong>Emergency Contacts</strong>
+                    <small>Get help when you need it</small>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ================= TOAST ================= -->
+
+    <div class="toast" id="toast">
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        <span id="toastMessage">
+            Route found successfully
+        </span>
+
+    </div>
+
+
+    <!-- JavaScript -->
+
+    <script src="routes.js"></script>
+    <script src="chat-widget.js"></script>
+    <script src="quick-nav.js"></script>
+    <script src="travel-tools.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RouteGuide | Weather</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="chat-widget.css">
+    <link rel="stylesheet" href="quick-nav.css">
+    <link rel="stylesheet" href="travel-tools.css">
+</head>
+<body>
+    <div class="page-background"></div>
+    <div class="background-overlay"></div>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="logo-text">
+                <h2>Route<span>Guide</span></h2>
+                <small>SMART NAVIGATION</small>
+            </div>
+        </a>
+
+        <button class="mobile-menu" id="mobileMenu" type="button" aria-label="Open navigation menu" title="Open navigation menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav id="mainNav" aria-label="Quick links">
+            <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="routes.html"><i class="fa-solid fa-route"></i> Routes</a>
+            <a href="traffic.html"><i class="fa-solid fa-car"></i> Traffic</a>
+            <a href="weather.html" class="active"><i class="fa-solid fa-cloud-sun"></i> Weather</a>
+            <a href="nearby.html"><i class="fa-solid fa-location-crosshairs"></i> Nearby</a>
+            <a href="emergency.html"><i class="fa-solid fa-truck-medical"></i> Emergency</a>
+            <a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button class="theme-button" id="themeButton" type="button"><i class="fa-solid fa-moon"></i> Dark Mode</button>
+            <button class="login-button" id="loginButton" type="button"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
+        </div>
+    </header>
+
+    <main class="hero page-hero">
+        <section class="hero-content page-content-shell">
+            <div class="hero-label"><i class="fa-solid fa-cloud-sun"></i> WEATHER UPDATES</div>
+            <h1>Check the <span>weather</span> before you travel</h1>
+            <p>Plan your route with real-time weather conditions across major Kenyan cities and highways.</p>
+
+            <form class="tool-search" id="weatherForm">
+                <i class="fa-solid fa-cloud-sun"></i>
+                <input id="weatherLocation" type="search" placeholder="Search weather for a town or road..." value="Nairobi, Kenya" aria-label="Weather location">
+                <button type="submit">Search weather</button>
+            </form>
+
+            <div class="tool-links" aria-label="Weather search sources">
+                <button type="button" data-weather-source="google"><i class="fa-brands fa-google"></i> Web weather</button>
+                <button type="button" data-weather-source="maps"><i class="fa-solid fa-map-location-dot"></i> Weather map</button>
+                <button type="button" data-weather-source="youtube"><i class="fa-brands fa-youtube"></i> YouTube</button>
+                <button type="button" data-weather-source="x"><i class="fa-brands fa-x-twitter"></i> X updates</button>
+                <button type="button" data-weather-source="news"><i class="fa-solid fa-newspaper"></i> Weather news</button>
+            </div>
+
+            <div class="features page-features">
+                <div class="feature">
+                    <div class="feature-icon blue"><i class="fa-solid fa-cloud"></i></div>
+                    <span>Nairobi<br>24°C</span>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon green"><i class="fa-solid fa-sun"></i></div>
+                    <span>Mombasa<br>30°C</span>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon orange"><i class="fa-solid fa-cloud-rain"></i></div>
+                    <span>Nakuru<br>18°C</span>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon purple"><i class="fa-solid fa-wind"></i></div>
+                    <span>Kisumu<br>27°C</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="login-modal" id="loginModal" aria-hidden="true">
+        <div class="modal-background" id="modalBackground"></div>
+        <div class="login-card">
+            <button class="close-login" id="closeLogin" type="button" aria-label="Close login form"><i class="fa-solid fa-xmark"></i></button>
+            <h3>Welcome back</h3>
+            <form id="loginForm">
+                <label>Email</label>
+                <input type="email" placeholder="you@example.com" />
+                <label>Password</label>
+                <div class="password-box">
+                    <input type="password" id="password" placeholder="Enter your password" />
+                    <button type="button" id="showPassword"><i class="fa-solid fa-eye"></i></button>
+                </div>
+                <button type="submit" class="primary-button full-width-login-button">Log in</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="auth.js"></script>
+    <script src="home.js"></script>
+    <script src="chat-widget.js"></script>
+    <script src="quick-nav.js"></script>
+    <script src="travel-tools.js"></script>
+    <script src="weather.js"></script>
+</body>
+</html>

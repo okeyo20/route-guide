@@ -1,0 +1,11 @@
+.routeguide-quick-nav { position: fixed; left: 22px; bottom: 22px; z-index: 139; }
+.routeguide-quick-toggle { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 0 15px; border: 1px solid rgba(255,255,255,.2); border-radius: 23px; color: #fff; background: #102d40; box-shadow: 0 12px 30px rgba(0,25,45,.35); cursor: pointer; font: 700 10px Poppins, sans-serif; }
+.routeguide-quick-toggle:hover { background: #17465f; transform: translateY(-2px); }
+.routeguide-quick-toggle i { color: #55c2ff; font-size: 16px; }
+.routeguide-quick-menu { display: none; position: absolute; left: 0; bottom: 56px; width: 190px; padding: 8px; border: 1px solid #36536b; border-radius: 13px; background: #071a2d; box-shadow: 0 20px 55px rgba(0,0,0,.5); }
+.routeguide-quick-menu.open { display: grid; gap: 3px; animation: routeguide-quick-in .16s ease-out; }
+@keyframes routeguide-quick-in { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+.routeguide-quick-menu a { display: flex; align-items: center; gap: 9px; padding: 9px 10px; border-radius: 8px; color: #dbeaf5; text-decoration: none; font: 500 10px Poppins, sans-serif; }
+.routeguide-quick-menu a:hover, .routeguide-quick-menu a[aria-current="page"] { color: #fff; background: rgba(7,156,245,.22); }
+.routeguide-quick-menu a i { width: 16px; color: #55c2ff; text-align: center; }
+@media (max-width: 560px) { .routeguide-quick-nav { left: 14px; bottom: 14px; } .routeguide-quick-toggle { width: 46px; justify-content: center; padding: 0; border-radius: 50%; } .routeguide-quick-toggle span { display: none; } .routeguide-quick-menu { bottom: 55px; } }
